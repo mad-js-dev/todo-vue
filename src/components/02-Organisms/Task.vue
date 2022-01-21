@@ -1,14 +1,13 @@
 <template>
-  <div 
-    :class="(state.isOpen)?'c-task c-task--is-open': 'c-task'"
-  >
+  <div :class="(state.isOpen)?'c-task c-task--is-open': 'c-task'">
     <div>
         <span>{{time}}</span>
 
         <Button 
             v-if="state.isOpen" 
-            @click.native="cardEditEvent"
+            class="c-task__edit"
             :icon="(!state.isUpdating)?'icon-pencil':'icon-floppy'" 
+            @click.native="cardEditEvent"
         />
     </div>
     <p v-if="!state.isUpdating">
@@ -17,21 +16,22 @@
      <p v-else>
         <TextArea 
             v-bind:content="$attrs['value'].content"
-            v-on:update="updateValue"/>
+            v-on:update="updateValue"
+            limit="350" />
     </p>
 
     <div class="c-task__component-toggle" @click="cardToggleEvent">
         <div class="c-task__component-cta">
-            <Icon content="icon-up-open-big" @click="cardToggleEvent" />
+            <Icon content="icon-cancel" @click="cardToggleEvent" />
         </div>
     </div>
   </div>
 </template>
 
 <script>
-import Button from './Button.vue'
-import Icon from './Icon.vue'
-import TextArea from './TextArea.vue'
+import Button from '../01-Molecules/Button.vue'
+import Icon from '../00-Atoms/Icon.vue'
+import TextArea from '../01-Molecules/TextArea.vue'
 
 export default {
     name: 'Task',
@@ -122,9 +122,15 @@ export default {
         max-height: 100%;
     }
 
-    .c-task .c-button {
+    .c-task__edit {
         float: right;
     }
 
+    .c-task__dragarea {
+
+        display: inline-block;
+        min-width: 32px;
+        min-height: 32px;
+    }
 
 </style>

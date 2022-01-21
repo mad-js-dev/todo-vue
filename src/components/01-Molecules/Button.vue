@@ -6,17 +6,17 @@
 </template>
 
 <script>
-import Icon from './Icon.vue'
+import Icon from '../00-Atoms/Icon.vue'
 
 export default {
   name: 'Button',
+  components: {
+    Icon
+  },
   props: {
     text: String,
     icon: String
   },
-  components: {
-    Icon
-  }
 }
 </script>
 

@@ -1,14 +1,11 @@
 <template>
   <div id="app">
-    <MainPage 
-      msg="Welcome to Your Vue.js App"
-      cta="Add new task"
-    />
+    <MainPage  />
   </div>
 </template>
 
 <script>
-import MainPage from './components/MainPage.vue'
+import MainPage from './components/04-Pages/MainPage.vue'
 
 export default {
   name: 'App',
