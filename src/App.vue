@@ -1,19 +1,15 @@
 <template>
   <div id="app">
-    <MainPage  />
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
-import MainPage from './components/04-Pages/MainPage.vue'
 
 export default {
   name: 'App',
-  components: {
-    MainPage
-  }
 }
-</script>
+</script> 
 
 <style>
 @import './assets/css/fontello.css';
