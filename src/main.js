@@ -1,10 +1,13 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+import Vuex from 'vuex'
+
 import App from './App.vue'
 import MainPage from './components/04-Pages/MainPage.vue'
 import LoginPage from './components/04-Pages/LoginPage.vue'
 Vue.config.productionTip = false
 Vue.use(VueRouter)
+Vue.use(Vuex)
 
 // 2. Define some routes
 // Each route should map to a component. The "component" can
@@ -18,11 +21,26 @@ const routes = [
 
 const router = new VueRouter({
   mode:'history',
-  routes // short for `routes: routes`
+  routes
 })
 
+const store = new Vuex.Store({
+  state: {
+    count: 41 
+  },
+  mutations: {
+    increment (state) {
+      state.count++
+    }
+  }
+})
+
+store.commit('increment')
+console.log(store.state.count) // -> 1
 
 new Vue({
-  router: router,
-  render: h => h(App)
+  router,
+  store,
+  render: h => h(App),
+
 }).$mount('#app')

@@ -1,12 +1,12 @@
 <template>
   <div class="p-main">
-    <h1>Login</h1>
+    <h1>Login {{this.$store.state.count}}</h1>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'LoginPage'
+  name: 'LoginPage',
 }
 </script>
 
